@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Palabras y Caracteres</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 16px;
+            resize: none;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .resultado {
+            margin-top: 20px;
+            text-align: center;
+        }
+        p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contador de Palabras y Caracteres</h1>
+        <textarea id="texto" placeholder="Escribe aquí..."></textarea>
+        <div class="resultado">
+            <p id="contadorPalabras">Palabras: 0</p>
+            <p id="contadorCaracteres">Caracteres: 0</p>
+        </div>
+    </div>
+
+    <script>
+        const textoArea = document.getElementById('texto');
+        const contadorPalabras = document.getElementById('contadorPalabras');
+        const contadorCaracteres = document.getElementById('contadorCaracteres');
+
+        textoArea.addEventListener('input', () => {
+            const texto = textoArea.value;
+            const palabras = texto.trim().split(/\s+/).filter(Boolean);
+            const cantidadPalabras = palabras.length;
+            const cantidadCaracteres = texto.length;
+
+            contadorPalabras.textContent = `Palabras: ${cantidadPalabras}`;
+            contadorCaracteres.textContent = `Caracteres: ${cantidadCaracteres}`;
+        });
+    </script>
+</body>
+</html>
